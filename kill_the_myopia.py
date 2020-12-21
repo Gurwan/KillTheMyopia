@@ -44,5 +44,5 @@ def pause():
     sendmessage("Screen time")
 
 if __name__ == "__main__":
-    print("Welcome in Kill The Myopia !")
+    print("Welcome to Kill The Myopia !")
     main()
