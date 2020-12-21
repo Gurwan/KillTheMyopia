@@ -14,7 +14,7 @@ def main():
         print("You took", nbLap, "breaks")
 
 def noPause():
-    t = 10 #1200 secondes -> 20 minutes
+    t = 1200 #1200 secondes -> 20 minutes
     while t:
         min, sec = divmod(t, 60)
         printformat = '{:02d}:{:02d}'.format(min, sec)
@@ -29,7 +29,7 @@ def noPause():
     sendmessage("Break time")
 
 def pause():
-    pauseTime = 5 #300 secondes -> 5 minutes
+    pauseTime = 300 #300 secondes -> 5 minutes
     while pauseTime:
         min, sec = divmod(pauseTime, 60)
         printformat = '{:02d}:{:02d}'.format(min, sec)
