@@ -1,5 +1,8 @@
 import time
+import os
 import subprocess
+import multiprocessing
+from playsound import playsound
 
 def sendmessage(message):
     subprocess.Popen(['notify-send', "Kill The Myopia",message])
@@ -11,10 +14,13 @@ def main():
         noPause()
         pause()
         nbLap += 1
-        print("You took", nbLap, "breaks")
+        if nbLap == 1:
+        	print("You took", nbLap, "break")
+        else:
+        	print("You took", nbLap, "breaks")
 
 def noPause():
-    t = 1200 #1200 secondes -> 20 minutes
+    t = 10 #1200 secondes -> 20 minutes
     while t:
         min, sec = divmod(t, 60)
         printformat = '{:02d}:{:02d}'.format(min, sec)
@@ -22,14 +28,22 @@ def noPause():
         time.sleep(1)
         t -= 1
 
-    print('\007')
+    if os.path.exists('./soundalarm.mp3'):
+    	p = multiprocessing.Process(target=playsound, args=("soundalarm.mp3",))
+    	p.start()
+    	input("press ENTER to continue")
+    	p.terminate()
+    	p.kill()
+    else:
+    	print('\007')
+    	input("press ENTER to continue")
     print("-----")
     print("Break time")
     print("-----")
     sendmessage("Break time")
 
 def pause():
-    pauseTime = 300 #300 secondes -> 5 minutes
+    pauseTime = 10 #300 secondes -> 5 minutes
     while pauseTime:
         min, sec = divmod(pauseTime, 60)
         printformat = '{:02d}:{:02d}'.format(min, sec)
@@ -37,7 +51,15 @@ def pause():
         time.sleep(1)
         pauseTime -= 1
 
-    print('\007')
+    if os.path.exists('./soundalarm.mp3'):
+    	p = multiprocessing.Process(target=playsound, args=("soundalarm.mp3",))
+    	p.start()
+    	input("press ENTER to continue")
+    	p.terminate()
+    	p.kill()
+    else:
+    	print('\007')
+    	input("press ENTER to continue")
     print("-----")
     print("Screen time")
     print("-----")

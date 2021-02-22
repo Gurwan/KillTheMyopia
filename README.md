@@ -22,4 +22,8 @@ This application is coded in Python.
 
 <h3> How install the app ? </h3>
 
+<p> If you want to use the script, you need to install the playsound module : pip3 install playsound </p>
+
+<p> Thanks to playsound, you can now add an alarm to warn you between each screen time. To use it, add a mp3 file with the name "soundalarm.mp3" in the same directory as the script </p>
+
 <p> Clone the project and place you in the downloaded folder. After that type in your terminal the command : python3 kill_the_myopia.py.</p>
