@@ -67,4 +67,9 @@ def pause():
 
 if __name__ == "__main__":
     print("Welcome to Kill The Myopia !")
-    main()
+    try:
+    	main()
+    except KeyboardInterrupt:
+    	print('')
+    	print('Thanks for using Kill The Myopia ! See you soon :)')
+    	os._exit(0)
